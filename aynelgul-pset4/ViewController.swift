@@ -13,13 +13,18 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var userInput: UITextField!
     
+    // MARK: SQLite database.
+    var database: Connection?
+    
     @IBAction func addButton(_ sender: UIButton) {
         // userinput invoeren in SQL/updaten
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // database aanmaken
+        setupDatabase()
         
         // ophalen lijst SQL
     }
@@ -31,6 +36,17 @@ class ViewController: UIViewController {
     
     // functie voor verwijderen punt
         // ook verwijderen uit SQL
+    
+    func setupDatabase() {
+        let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+        
+        do {
+            database = try Connection("\(path)/db.sqlite3")
+        } catch {
+            // error handling
+            print ("Cannot connect to database: \(error)")
+        }
+    }
 
 
 }
