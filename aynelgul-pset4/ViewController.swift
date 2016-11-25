@@ -102,5 +102,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.tableView.reloadData()
         }
     }
+    
+    override func encodeRestorableState(with coder: NSCoder) {
+        if let text = userInput.text {
+            coder.encode(text, forKey: "text")
+        }
+        super.encodeRestorableState(with: coder)
+    }
+    
+    override func decodeRestorableState(with coder: NSCoder) {
+        if let text = coder.decodeObject(forKey: "text") as? String {
+            userInput.text = text
+        }
+        super.decodeRestorableState(with: coder)
+    }
+
+}
+
+extension ViewController: UIViewControllerRestoration {
+    static func viewController(withRestorationIdentifierPath identifierComponents: [Any],
+                               coder: NSCoder) -> UIViewController? {
+        let vc = ViewController()
+        return vc
+    }
 }
 
