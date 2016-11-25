@@ -9,44 +9,98 @@
 import UIKit
 import SQLite
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var userInput: UITextField!
+    @IBOutlet weak var tableView: UITableView!
     
-    // MARK: SQLite database.
-    var database: Connection?
+    private var database = DatabaseHelper()
+    
+    var points: [String?] = []
     
     @IBAction func addButton(_ sender: UIButton) {
-        // userinput invoeren in SQL/updaten
+        // Put userInput in database.
+        if userInput.text == "" {
+            return
+        }
+        
+        do {
+            try database!.create(toDoPoint: userInput.text!)
+            update()
+        } catch {
+            print(error)
+        }
+        
+        userInput.text=""
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // database aanmaken
-        setupDatabase()
+//        restorationIdentifier = "MyViewControllerRestorationId"
+//        restorationClass = MyViewController.self
         
-        // ophalen lijst SQL
+        if database == nil {
+            print("Error")
+        }
+        
+        update()
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    // functie voor verwijderen punt
-        // ook verwijderen uit SQL
+    // grootte en inhoud bepalen TableView, volgende twee functies
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return points.count
+    }
     
-    func setupDatabase() {
-        let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoCell
         
-        do {
-            database = try Connection("\(path)/db.sqlite3")
-        } catch {
-            // error handling
-            print ("Cannot connect to database: \(error)")
+        cell.toDoLabel?.text = points[indexPath.row]
+    
+        return cell
+    }
+    
+    // swipe delete button (volgende twee functies)
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+                        
+            // delete from SQLite database
+            let name = points[indexPath.row]
+            
+            points.remove(at: indexPath.row)
+
+            tableView.deleteRows(at: [indexPath], with: .fade)
+
+            do {
+                try database!.deleteFromDatabase(name: name!)
+            } catch {
+                print(error)
+            }
+        
         }
     }
-
-
+    
+    // functie inladen points met database
+    func update() {
+        do {
+            points = try database!.readAll() as! [String]
+        } catch let error as NSError {
+            print(error.userInfo)
+        }
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
 }
+

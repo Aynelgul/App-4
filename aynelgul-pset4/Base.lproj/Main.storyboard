@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="aynelgul_pset4" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RootViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="aynelgul_pset4" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -41,16 +41,19 @@
                                             <constraint firstAttribute="height" constant="485" id="gvf-vq-dGK"/>
                                         </constraints>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="73" id="etp-pH-dAy" customClass="ToDoCell" customModule="aynelgul_pset4" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="73" id="etp-pH-dAy" customClass="ToDoCell" customModule="aynelgul_pset4" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="73"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="etp-pH-dAy" id="4bJ-oh-Haz">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VLD-k6-Wgy">
+                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" restorationIdentifier="SwitchController" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VLD-k6-Wgy">
                                                             <rect key="frame" x="8" y="21" width="51" height="31"/>
                                                             <color key="onTintColor" red="0.54456188093772162" green="0.37887684568052599" blue="0.99835759401321411" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <connections>
+                                                                <action selector="switchAction:" destination="etp-pH-dAy" eventType="valueChanged" id="Zjq-h5-tcS"/>
+                                                            </connections>
                                                         </switch>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnj-ir-HeZ">
                                                             <rect key="frame" x="82" y="21" width="285" height="31"/>
@@ -69,10 +72,15 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
+                                                    <outlet property="toDoLabel" destination="bnj-ir-HeZ" id="EqS-ri-CQ9"/>
                                                     <outlet property="toDoSwitch" destination="VLD-k6-Wgy" id="zxI-mN-VEr"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="ZuK-49-Gxk"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="JzG-ao-CJB"/>
+                                        </connections>
                                     </tableView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What to do?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4F7-Ha-Y15">
                                         <rect key="frame" x="115" y="28" width="145" height="22"/>
@@ -85,7 +93,7 @@
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s6b-oc-HM5">
                                         <rect key="frame" x="67" y="58" width="240" height="1"/>
-                                        <color key="backgroundColor" red="0.5490196078431373" green="0.38039215686274508" blue="0.99607843137254903" alpha="0.85322473404255317" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.54901960780000003" green="0.3803921569" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kqr-jt-fMi">
                                         <rect key="frame" x="292" y="584" width="46" height="30"/>
@@ -121,7 +129,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="dhe-F5-Q1P" secondAttribute="trailing" id="C9F-r9-BhK"/>
                             <constraint firstItem="dhe-F5-Q1P" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="VVm-w8-Z4W"/>
@@ -130,7 +138,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="TableView" destination="xjz-2f-zea" id="i2b-2p-fda"/>
                         <outlet property="searchDisplayController" destination="Z8r-Xn-cLf" id="HP8-oP-P0r"/>
+                        <outlet property="tableView" destination="xjz-2f-zea" id="3AQ-w0-a8J"/>
                         <outlet property="userInput" destination="w7V-ly-lXv" id="7ao-Bn-Xzv"/>
                     </connections>
                 </viewController>
