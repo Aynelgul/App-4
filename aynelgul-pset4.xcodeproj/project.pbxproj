@@ -16,6 +16,10 @@
 		854807A71DE31B5C0015DA89 /* aynelgul_pset4UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854807A61DE31B5C0015DA89 /* aynelgul_pset4UITests.swift */; };
 		8554FA6E1DE4B7C8006A8D82 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8554FA601DE4B3DC006A8D82 /* SQLite.framework */; };
 		8554FACC1DE4EEA7006A8D82 /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554FACB1DE4EEA7006A8D82 /* DatabaseHelper.swift */; };
+		8554FAD51DE89CFD006A8D82 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 8554FAD41DE89CFD006A8D82 /* README.md */; };
+		8554FADA1DE89D92006A8D82 /* Schermafbeelding 2016-11-25 om 17.24.24.png in Resources */ = {isa = PBXBuildFile; fileRef = 8554FAD71DE89D92006A8D82 /* Schermafbeelding 2016-11-25 om 17.24.24.png */; };
+		8554FADB1DE89D92006A8D82 /* Schermafbeelding 2016-11-25 om 17.24.35.png in Resources */ = {isa = PBXBuildFile; fileRef = 8554FAD81DE89D92006A8D82 /* Schermafbeelding 2016-11-25 om 17.24.35.png */; };
+		8554FADC1DE89D92006A8D82 /* Schermafbeelding 2016-11-25 om 17.25.23.png in Resources */ = {isa = PBXBuildFile; fileRef = 8554FAD91DE89D92006A8D82 /* Schermafbeelding 2016-11-25 om 17.25.23.png */; };
 		85BC4FB21DE4458E00DCC8CC /* ToDoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BC4FB11DE4458E00DCC8CC /* ToDoCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +105,10 @@
 		854807A81DE31B5C0015DA89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8554FA551DE4B3DB006A8D82 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "aynelgul-pset4/External/SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
 		8554FACB1DE4EEA7006A8D82 /* DatabaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
+		8554FAD41DE89CFD006A8D82 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		8554FAD71DE89D92006A8D82 /* Schermafbeelding 2016-11-25 om 17.24.24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Schermafbeelding 2016-11-25 om 17.24.24.png"; sourceTree = "<group>"; };
+		8554FAD81DE89D92006A8D82 /* Schermafbeelding 2016-11-25 om 17.24.35.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Schermafbeelding 2016-11-25 om 17.24.35.png"; sourceTree = "<group>"; };
+		8554FAD91DE89D92006A8D82 /* Schermafbeelding 2016-11-25 om 17.25.23.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Schermafbeelding 2016-11-25 om 17.25.23.png"; sourceTree = "<group>"; };
 		85BC4FB11DE4458E00DCC8CC /* ToDoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -154,6 +162,7 @@
 		854807851DE31B570015DA89 /* aynelgul-pset4 */ = {
 			isa = PBXGroup;
 			children = (
+				8554FAD61DE89D08006A8D82 /* Docs */,
 				854807861DE31B570015DA89 /* AppDelegate.swift */,
 				8554FACB1DE4EEA7006A8D82 /* DatabaseHelper.swift */,
 				854807881DE31B580015DA89 /* ViewController.swift */,
@@ -196,6 +205,17 @@
 				8554FA6C1DE4B3DC006A8D82 /* SQLite.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		8554FAD61DE89D08006A8D82 /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+				8554FAD71DE89D92006A8D82 /* Schermafbeelding 2016-11-25 om 17.24.24.png */,
+				8554FAD81DE89D92006A8D82 /* Schermafbeelding 2016-11-25 om 17.24.35.png */,
+				8554FAD91DE89D92006A8D82 /* Schermafbeelding 2016-11-25 om 17.25.23.png */,
+				8554FAD41DE89CFD006A8D82 /* README.md */,
+			);
+			name = Docs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,6 +387,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				854807911DE31B590015DA89 /* LaunchScreen.storyboard in Resources */,
+				8554FADB1DE89D92006A8D82 /* Schermafbeelding 2016-11-25 om 17.24.35.png in Resources */,
+				8554FADA1DE89D92006A8D82 /* Schermafbeelding 2016-11-25 om 17.24.24.png in Resources */,
+				8554FADC1DE89D92006A8D82 /* Schermafbeelding 2016-11-25 om 17.25.23.png in Resources */,
 				8548078E1DE31B590015DA89 /* Assets.xcassets in Resources */,
 				8548078C1DE31B590015DA89 /* Main.storyboard in Resources */,
 			);
@@ -395,6 +418,7 @@
 			files = (
 				8554FACC1DE4EEA7006A8D82 /* DatabaseHelper.swift in Sources */,
 				854807891DE31B580015DA89 /* ViewController.swift in Sources */,
+				8554FAD51DE89CFD006A8D82 /* README.md in Sources */,
 				85BC4FB21DE4458E00DCC8CC /* ToDoCell.swift in Sources */,
 				854807871DE31B570015DA89 /* AppDelegate.swift in Sources */,
 			);
